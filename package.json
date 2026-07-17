@@ -1,6 +1,6 @@
 {
   "name": "iconify-downloader",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Download icons as SVG and JSON from the Iconify API",
   "author": "Fahmi Farid",
   "license": "MIT",
