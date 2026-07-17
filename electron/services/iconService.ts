@@ -28,17 +28,17 @@ export type DownloadCustomizationOptions = {
     zipName?: string;
 };
 
-function sanitizeFolderName(input: string): string {
+export function sanitizeFolderName(input: string): string {
     return input.replace(/[<>:"/\\|?*]/g, "-").trim();
 }
 
-function sanitizeZipName(input: string): string {
+export function sanitizeZipName(input: string): string {
     const normalized = input.trim().replace(/[<>:"/\\|?*]/g, "-");
     const withoutExt = normalized.toLowerCase().endsWith(".zip") ? normalized.slice(0, -4) : normalized;
     return withoutExt.length ? withoutExt : "icons";
 }
 
-function withColorCustomization(svg: string, color: string, forceMonochrome: boolean): string {
+export function withColorCustomization(svg: string, color: string, forceMonochrome: boolean): string {
     const root = parse(svg);
     const svgEl = root.querySelector("svg");
     if (!svgEl) return svg;
@@ -104,7 +104,7 @@ async function fetchIconSvg(iconName: string): Promise<string> {
 /**
  * Parses an SVG string to extract body and metadata for JSON collection
  */
-function parseSvgForJson(svg: string, iconName: string): ParsedIconData {
+export function parseSvgForJson(svg: string, iconName: string): ParsedIconData {
     const root = parse(svg);
     const svgEl = root.querySelector("svg");
 
