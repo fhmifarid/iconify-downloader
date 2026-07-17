@@ -1,12 +1,14 @@
 # ![Iconify Downloader](.github/banner.svg)
 
+[![CI](https://github.com/fhmifarid/iconify-downloader/actions/workflows/ci.yml/badge.svg)](https://github.com/fhmifarid/iconify-downloader/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Electron](https://img.shields.io/badge/Electron-40-47848F?logo=electron&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
 ![pnpm](https://img.shields.io/badge/pnpm-supported-F69220?logo=pnpm&logoColor=white)
 
-An Electron desktop app + CLI to download Iconify icons, customize SVG output, organize files, and export ZIP bundles.
+An open-source **Electron desktop application** and **Node.js CLI tool** designed to download Iconify icons efficiently. Easily customize SVG outputs, organize icon files dynamically, bundle into ZIP archives, and generate Iconify-compatible JSON collections. Perfect for front-end developers, UI/UX designers, and open-source contributors looking for a seamless icon management workflow.
 
 ## Table of Contents
 - [Features](#features)
