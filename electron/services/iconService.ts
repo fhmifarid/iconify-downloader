@@ -93,12 +93,25 @@ async function createZipFromFiles(filePaths: string[], baseDir: string, zipPath:
 }
 
 /**
- * Downloads a single icon as SVG string
+ * Downloads a single icon as SVG string with retry logic
  */
-async function fetchIconSvg(iconName: string): Promise<string> {
+async function fetchIconSvg(iconName: string, retries = 3): Promise<string> {
     const url = `https://api.iconify.design/${iconName}.svg`;
-    const response = await axios.get(url);
-    return response.data;
+    let lastError: any;
+
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await axios.get(url, { timeout: 10000 });
+            return response.data;
+        } catch (err: any) {
+            lastError = err;
+            if (i < retries - 1) {
+                // Exponential backoff
+                await new Promise((res) => setTimeout(res, 1000 * Math.pow(2, i)));
+            }
+        }
+    }
+    throw new Error(`Failed to fetch icon ${iconName} after ${retries} attempts: ${lastError?.message}`);
 }
 
 /**
