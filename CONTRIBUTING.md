@@ -14,8 +14,11 @@ Thanks for your interest in contributing to Iconify Downloader. Contributions ar
    ```
 4. Typecheck before submitting:
    ```bash
-   pnpm exec tsc -p tsconfig.json --noEmit
-   pnpm exec tsc -p tsconfig.electron.json --noEmit
+   pnpm typecheck
+   ```
+5. Lint before submitting:
+   ```bash
+   pnpm lint
    ```
 
 ## What to Contribute
