@@ -23,12 +23,14 @@
     "dev": "concurrently -k \"vite\" \"npm run dev:electron\"",
     "dev:electron": "wait-on tcp:4000 && tsc -p tsconfig.electron.json && node -e \"require('fs').writeFileSync('dist-electron/package.json', '{\\\"type\\\": \\\"commonjs\\\"}')\" && electron .",
     "build": "tsc -p tsconfig.electron.json && node -e \"require('fs').writeFileSync('dist-electron/package.json', '{\\\"type\\\": \\\"commonjs\\\"}')\" && vite build && electron-builder",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.electron.json --noEmit",
+    "test": "vitest run",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.10.0",
     "archiver": "^7.0.1",
+    "axios": "^1.10.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.28.1",
     "fs-extra": "^11.3.0",
@@ -42,6 +44,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/archiver": "^6.0.3",
     "@types/fs-extra": "^11.0.4",
+    "@types/node": "^26.1.1",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
@@ -56,6 +59,7 @@
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "vite": "^7.3.1",
+    "vitest": "^4.1.10",
     "wait-on": "^9.0.3"
   },
   "engines": {
